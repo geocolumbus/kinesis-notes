@@ -53,6 +53,7 @@ def write_mock_orders_to_aws_kinesis(client, stream_name, qty):
         try:
             response = client.put_record(StreamName=stream_name, Data=json.dumps(order),
                                          PartitionKey=order["id"])
+            print(response)
         except Exception as e:
             print(e)
 
